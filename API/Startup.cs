@@ -19,7 +19,7 @@ namespace API
             services.AddDbContext<DbContextDGII>(options => options.UseSqlite(_configuracion.GetConnectionString("DefaultConnection")));
 
             services.AddSwaggerDocumentation();
-
+            services.AddApplicationServices(_configuracion);
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy", policy =>

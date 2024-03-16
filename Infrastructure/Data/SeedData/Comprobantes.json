@@ -1,0 +1,16 @@
+[
+  {
+    "Id": 1,
+    "ContribuyenteId": 1,
+    "Contribuyente": "Bryan Bocio",
+    "Ncf": "999999",
+    "Monto": 2000
+  },
+  {
+    "Id": 2,
+    "ContribuyenteId": 2,
+    "Contribuyente": "Bryan Gomez",
+    "Ncf": "999999",
+    "Monto": 3000
+  }
+]

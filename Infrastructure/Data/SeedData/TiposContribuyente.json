@@ -1,0 +1,10 @@
+[
+  {
+    "Id": 1,
+    "Descripcion": "PERSONA FISICA"
+  },
+  {
+    "Id": 2,
+    "Descripcion": "PERSONA JURIDICA"
+  }
+]

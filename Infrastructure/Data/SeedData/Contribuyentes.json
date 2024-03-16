@@ -1,0 +1,44 @@
+[
+  {
+    "Id": 1,
+    "RncCedula": "40233337290",
+    "Nombre": "Bryan Bocio",
+    "ComprobantesFiscales": [
+      {
+        "Id": 1,
+        "Contribuyente": {
+
+        },
+        "Ncf": "999999",
+        "Monto": 2000
+      }
+    ],
+    "TipoContribuyenteId": 1,
+    "TipoContribuyente": {
+      "Id": 1,
+      "Descripcion": "PERSONA FISICA"
+    },
+    "IsActivo": true
+  },
+  {
+    "Id": 2,
+    "RncCedula": "40433337291",
+    "Nombre": "Bryan Gomez",
+    "ComprobantesFiscales": [
+      {
+        "Id": 2,
+        "ContribuyenteId": 2,
+        "Contribuyente": "Bryan Gomez",
+        "Ncf": "999999",
+        "Monto": 3000
+      }
+    ],
+    "TipoContribuyenteId": 2,
+    "TipoContribuyente": {
+      "Id": 2,
+      "Descripcion": "PERSONA JURIDICA"
+    },
+    "IsActivo": true
+  }
+
+]
