@@ -12,10 +12,7 @@ namespace Core.Entities.Contribuyentes
         public int ContribuyenteId  { get; set; }
         public Contribuyente Contribuyente  { get; set; }   
         public string Ncf { get; set; }
-
-        [Column(TypeName ="decimal(18,2)")]
         public decimal Monto { get; set; }
-
         public decimal GetItbis()
         {
             return this.Monto * (decimal)0.18;
