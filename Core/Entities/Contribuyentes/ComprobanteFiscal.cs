@@ -9,7 +9,6 @@ namespace Core.Entities.Contribuyentes
 {
     public class ComprobanteFiscal : BaseEntity
     {
-        public int ContribuyenteId  { get; set; }
         public Contribuyente Contribuyente  { get; set; }   
         public string Ncf { get; set; }
         public decimal Monto { get; set; }
