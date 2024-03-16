@@ -1,5 +1,6 @@
 ﻿using Core.Data;
 using Core.Entities.Contribuyentes;
+using Core.Entities.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,17 +9,18 @@ namespace API.Controllers
     public class ContribuyenteController : Controller
     {
 
-        private readonly DbContextDGII dbContext;
-        public ContribuyenteController(DbContextDGII context)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public ContribuyenteController(IUnitOfWork unitOfWork)
         {
-            this.dbContext = context;
+            this._unitOfWork = unitOfWork;
         }
 
 
         [HttpGet("/contribuyentes")]
-        public async Task<List<Contribuyente>> GetContribuyentes()
+        public async Task<ActionResult<Contribuyente>> GetContribuyentes()
         {
-           return await dbContext.Contribuyentes.Include(contri=> contri.TipoContribuyente).ToListAsync();
+           return Ok(await _unitOfWork.Repository<Contribuyente>().ListAllAsync());
         }
     }
 }
