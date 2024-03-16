@@ -1,4 +1,5 @@
 using Core.Data;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,7 +7,7 @@ namespace API
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
             using (var scope = host.Services.CreateScope())
@@ -16,7 +17,9 @@ namespace API
 
                 try
                 {
-                    var storeContext = services.GetRequiredService<DbContextDGII>();
+                    var dbContext = services.GetRequiredService<DbContextDGII>();
+                    await dbContext.Database.MigrateAsync();
+                    await DbContextSeedData.SeedDataAsync(dbContext, loggerFactory);
                 }
                 catch (Exception exception)
                 {
