@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Core.Entities.Contribuyentes;
+using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace Core.Data
@@ -11,6 +12,9 @@ namespace Core.Data
 
         }
 
+        public DbSet<TipoContribuyente> TiposContribuyente { get; set; }
+        public DbSet<Contribuyente> Contribuyentes { get; set; }
+        public DbSet<ComprobanteFiscal> ComprobantesFiscales{ get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
