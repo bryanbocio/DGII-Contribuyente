@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    public class ContribuyenteController : Controller
+    public class ContribuyenteController : BaseApiController
     {
 
         private readonly IUnitOfWork _unitOfWork;
