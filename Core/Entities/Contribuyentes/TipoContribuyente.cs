@@ -9,6 +9,6 @@ namespace Core.Entities.Contribuyentes
     public class TipoContribuyente : BaseEntity
     {
         public string Descripcion { get; set; }
-        
+
     }
 }
