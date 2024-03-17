@@ -1,4 +1,5 @@
-﻿using Core.Entities.Interfaces;
+﻿using API.Helpers;
+using Core.Entities.Interfaces;
 using Infrastructure.Data.Repositories;
 
 namespace API.Extensions
@@ -10,6 +11,7 @@ namespace API.Extensions
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
+            services.AddAutoMapper(typeof(MappingProfiles));
 
             return services;
         }
