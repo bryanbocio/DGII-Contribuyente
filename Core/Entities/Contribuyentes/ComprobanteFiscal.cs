@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Core.Entities.Contribuyentes
+﻿namespace Core.Entities.Contribuyentes
 {
     public class ComprobanteFiscal : BaseEntity
     {
-        public Contribuyente Contribuyente  { get; set; }   
+        public Contribuyente Contribuyente  { get; set; } 
+        public int ContribuyenteId { get; set; } 
         public string Ncf { get; set; }
         public decimal Monto { get; set; }
         public decimal GetItbis()

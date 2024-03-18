@@ -17,7 +17,10 @@ namespace Infrastructure.Data.Configuration
             builder.Property(contribuyente=> contribuyente.Id).IsRequired();
             builder.Property(contribuyente=> contribuyente.Nombre).IsRequired().HasMaxLength(100);
             builder.Property(contribuyente => contribuyente.IsActivo).IsRequired();
-            builder.HasOne(contribuyente => contribuyente.TipoContribuyente).WithMany().HasForeignKey(contribuyente => contribuyente.TipoContribuyenteId);
+            builder.HasOne(contribuyente => contribuyente.TipoContribuyente).WithMany(
+                ).HasForeignKey(contribuyente => contribuyente.TipoContribuyenteId);
+            builder.HasMany(contribuyente => contribuyente.ComprobantesFiscales).WithOne(comprobante => comprobante.Contribuyente).HasForeignKey(comprobante => comprobante.ContribuyenteId);
+        
         }
     }
 }

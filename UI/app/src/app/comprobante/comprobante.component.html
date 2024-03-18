@@ -1,0 +1,22 @@
+<div class="container">
+  <div>
+    <h1><b>Comprobantes Fiscales</b></h1>
+    <hr class="hr" />
+  </div>
+  <div *ngIf="comprobantes.length == 0">
+    <h1 class="text-center">NO HAY DATOS... :(</h1>
+    <hr class="hr"/>
+  </div>
+  <div class="d-flex flex-row justify-content-md-arround" >
+   
+    <div class="card border-2 m-1" style="width: 18rem;"*ngFor="let comprobante of comprobantes">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><span class="fw-bold">RNC/Cédula:</span> {{comprobante.rncCedula}}</li>
+        <li class="list-group-item"><span class="fw-bold">NCF:</span> {{comprobante.ncf}}</li>
+        <li class="list-group-item"><span class="fw-bold">ITBIS:</span> DOP {{comprobante.itbis | currency}}</li>
+        <li class="list-group-item"><span class="fw-bold">Monto:</span> DOP {{comprobante.monto | currency}} </li>
+      </ul>
+    </div>
+  </div>
+    
+</div>

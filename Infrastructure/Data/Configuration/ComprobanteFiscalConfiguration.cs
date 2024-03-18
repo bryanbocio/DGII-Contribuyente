@@ -16,7 +16,10 @@ namespace Infrastructure.Data.Configuration
             builder.Property(comprobante => comprobante.Id).IsRequired();
             builder.Property(comprobante => comprobante.Ncf).IsRequired().HasMaxLength(11);
             builder.Property(comprobante => comprobante.Monto).IsRequired().HasColumnType("decimal(18,2)"); ;
-            builder.HasOne(comprobante=> comprobante.Contribuyente).WithMany(contri=>contri.ComprobantesFiscales).OnDelete(DeleteBehavior.Cascade);
+            builder.HasOne(comprobante=> comprobante.Contribuyente)
+                .WithMany(contri=>contri.ComprobantesFiscales).
+                OnDelete(DeleteBehavior.Cascade);
+            
         }
     }
 }
