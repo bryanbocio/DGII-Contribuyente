@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContribuyenteComponent } from './contribuyente/contribuyente.component';
+import { ComprobanteComponent } from './comprobante/comprobante.component';
 
 const routes: Routes = [
   { path: 'contribuyente', component: ContribuyenteComponent },
+  { path: 'comprobantes/:id', component: ComprobanteComponent },
 ];
 
 @NgModule({
