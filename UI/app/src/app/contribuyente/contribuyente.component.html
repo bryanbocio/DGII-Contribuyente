@@ -1,18 +1,26 @@
-<div class="m-3 card-body">
-    <table class="table mt-5" >
-        <thead style="background-color: #8eb535;">
-            <tr >
-                <th *ngFor="let title of tableHeaders">{{title}}</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let contribuyente of contribuyentes">
-                    <td >{{contribuyente.rncCedula}}</td>
-                    <td >{{contribuyente.nombre}}</td>
-                    <td >{{contribuyente.tipoContribuyente}}</td>
-                    <td >{{contribuyente.isActivo==true?"ESTÁ ACTIVO":"NO ESTÁ ACTIVO"}}</td>
-                    <td><a class="btn btn-success" href="/comprobantes/{{contribuyente.id}}">Ver Comprobantes</a></td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container">
+    <div>
+      <h1><b>Contribuyentes</b></h1>
+      <hr class="hr" />
+    </div>
+    <div class="m-3 card-body">
+        <table class="table mt-5" >
+            <thead style="background-color: #8eb535;">
+                <tr >
+                    <th class="align-items-center" *ngFor="let title of tableHeaders">{{title}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let contribuyente of contribuyentes">
+                        <td >{{contribuyente.rncCedula}}</td>
+                        <td >{{contribuyente.nombre}}</td>
+                        <td >{{contribuyente.tipoContribuyente}}</td>
+                        <td   class="d-flex " *ngIf="!contribuyente.isActivo"><span class="rounded mt-2 ml-0 p-2  text-center" style="background-color: #d70505; color: white; cursor: pointer;" >INACTIVO</span></td>
+                        <td   class="d-flex"  *ngIf="contribuyente.isActivo"><span class="rounded mt-2 p-2  ml-0  text-center" style="background-color: #029b20; color: white; cursor: pointer;" >ACTIVO</span></td>
+                        <td><a class="btn btn-success" href="/comprobantes/{{contribuyente.id}}">Ver Comprobantes</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+

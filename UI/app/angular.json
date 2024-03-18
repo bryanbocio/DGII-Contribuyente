@@ -30,7 +30,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/ngx-spinner/animations/timer.css"
             ],
             "scripts": []
           },
@@ -94,11 +95,15 @@
             ],
             "styles": [
               "src/styles.scss"
+              
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "ad8cc7d7-9664-4f0d-aafe-9ba08b6f4e85"
   }
 }
