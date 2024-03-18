@@ -56,6 +56,12 @@ namespace Infrastructure.Data
                           IsActivo=true,
                           RncCedula="40233337291",
                           TipoContribuyenteId=2,
+                   },
+                    new(){ Id = 3,
+                          Nombre="CARLOS ABREU",
+                          IsActivo=false,
+                          RncCedula="40233337295",
+                          TipoContribuyenteId=2,
                    }
                };
 
