@@ -8,12 +8,12 @@
     <h1 class="mt-4"><b>Comprobantes Fiscales</b></h1>
     <hr class="hr" />
   </div>
-  <div *ngIf="comprobantes.length == 0 && isReady==true">
+  <div *ngIf="comprobantes.length == 0">
     <h1 class="text-center">NO HAY DATOS... :(</h1>
     <hr class="hr"/>
   </div>
   <div>
-    <span class="card m-1 "> <b>El total del ITBS es : {{getTotalItbis()}}</b></span>
+    <span class="card m-1 " *ngIf="getTotalItbis()>0 && isReady === true"> <b>El total del ITBS es : RD{{getTotalItbis() | currency}}</b></span>
   </div>
   <div class="d-flex flex-row justify-content-md-arround" >
   
@@ -21,8 +21,8 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item"><span class="fw-bold">RNC/Cédula:</span> {{comprobante.rncCedula}}</li>
         <li class="list-group-item"><span class="fw-bold">NCF:</span> {{comprobante.ncf}}</li>
-        <li class="list-group-item"><span class="fw-bold">ITBIS:</span> DOP {{comprobante.itbis | currency}}</li>
         <li class="list-group-item"><span class="fw-bold">Monto:</span> DOP {{comprobante.monto | currency}} </li>
+        <li class="list-group-item"><span class="fw-bold">ITBIS:</span> DOP {{comprobante.itbis | currency}}</li>
       </ul>
     </div>
   </div>

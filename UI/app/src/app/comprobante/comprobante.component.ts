@@ -12,8 +12,7 @@ import { ComprobanteParams } from '../shared/models/comprobante.params';
 export class ComprobanteComponent implements OnInit{
 
     public comprobantes:IComprobanteFiscal[]=[]
-    isReady=false;
-    Itbs:number=0
+    public isReady=false;
     comprobanteParams=new ComprobanteParams();
     constructor(private servicio:ComprobanteService, private route:ActivatedRoute){
       
@@ -22,13 +21,16 @@ export class ComprobanteComponent implements OnInit{
    if(this.comprobantes.length ==0){
     this.cargarDatos();
    }
-    this.getTotalItbis();
-    this.isReady=true
   }
   cargarDatos(){
     const contribuyenteId=this.route.snapshot.paramMap.get('id');
     if(contribuyenteId){
       this.comprobanteParams.contribuyenteId=+contribuyenteId;
+      if(contribuyenteId.toString() !=='todos'){
+        this.isReady=true
+      }else{
+        this.isReady=false
+      }
     }
     
     this.servicio.getComprobantes(this.comprobanteParams).subscribe({
@@ -41,11 +43,12 @@ export class ComprobanteComponent implements OnInit{
   }
 
    public getTotalItbis(){
-     this.comprobantes.forEach(comprobante=>{
-      this.Itbs=this.Itbs + comprobante.itbis
+    let Itbis=0
+    this.comprobantes.forEach(comprobante=>{
+      Itbis=Itbis + comprobante.itbis
      })
 
-     return this.Itbs;
+     return Itbis;
   }
 
 
