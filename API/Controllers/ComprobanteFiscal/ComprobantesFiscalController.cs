@@ -1,9 +1,6 @@
 ﻿using Core.Entities.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Core.Entities.Contribuyentes;
-using Core.Data;
-using AutoMapper;
-using Microsoft.EntityFrameworkCore;
 using API.DTOs;
 using Core.Specification.Comprobantes;
 using API.Utils;
