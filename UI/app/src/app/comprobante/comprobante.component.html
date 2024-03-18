@@ -1,14 +1,22 @@
+
 <div class="container">
+ 
   <div>
-    <h1><b>Comprobantes Fiscales</b></h1>
+    <div>
+      <a href="/contribuyente" class="btn btn-warning">Atrás</a>
+    </div>
+    <h1 class="mt-4"><b>Comprobantes Fiscales</b></h1>
     <hr class="hr" />
   </div>
-  <div *ngIf="comprobantes.length == 0">
+  <div *ngIf="comprobantes.length == 0 && isReady==true">
     <h1 class="text-center">NO HAY DATOS... :(</h1>
     <hr class="hr"/>
   </div>
+  <div>
+    <span class="card m-1 "> <b>El total del ITBS es : {{getTotalItbis()}}</b></span>
+  </div>
   <div class="d-flex flex-row justify-content-md-arround" >
-   
+  
     <div class="card border-2 m-1" style="width: 18rem;"*ngFor="let comprobante of comprobantes">
       <ul class="list-group list-group-flush">
         <li class="list-group-item"><span class="fw-bold">RNC/Cédula:</span> {{comprobante.rncCedula}}</li>

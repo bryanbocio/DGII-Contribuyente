@@ -4,7 +4,7 @@ import { ContribuyenteComponent } from './contribuyente/contribuyente.component'
 import { ComprobanteComponent } from './comprobante/comprobante.component';
 
 const routes: Routes = [
-  { path: 'contribuyente', component: ContribuyenteComponent },
+  { path: 'contribuyente', component: ContribuyenteComponent, pathMatch:'full' },
   { path: 'comprobantes/:id', component: ComprobanteComponent },
 ];
 

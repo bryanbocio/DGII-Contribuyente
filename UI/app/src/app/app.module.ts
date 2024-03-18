@@ -9,6 +9,9 @@ import { CoreModule } from './core/core.module';
 import { ComprobanteComponent } from './comprobante/comprobante.component';
 import {  NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './core/interceptor/loanding.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ItbsResumeComponent } from './shared/itbs-resume/itbs-resume.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,16 +24,14 @@ import { LoadingInterceptor } from './core/interceptor/loanding.interceptor';
     AppRoutingModule,
     HttpClientModule,
     CoreModule,
-    NgxSpinnerModule
-    
+    BrowserAnimationsModule,
+    SharedModule
   ],
   exports:[
-    NgxSpinnerModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass:LoadingInterceptor, multi:true},
   ],
-  bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

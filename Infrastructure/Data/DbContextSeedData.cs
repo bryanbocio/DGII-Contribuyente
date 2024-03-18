@@ -18,7 +18,7 @@ namespace Infrastructure.Data
             {
                 await SeedTipoContribuytente(dbContext);
                 await SeedContribuyentes(dbContext);
-                //await SeedComprobanteFiscal(dbContext);
+                await SeedComprobanteFiscal(dbContext);
 
                 if (dbContext.ChangeTracker.HasChanges()) await dbContext.SaveChangesAsync();
             }
@@ -44,12 +44,19 @@ namespace Infrastructure.Data
         {
             if (!dbContext.Contribuyentes.Any())
             {
-               Contribuyente contribuyente= new Contribuyente{
-                   Id = 1,
-                   Nombre="Pedro",
-                   IsActivo=true,
-                   RncCedula="40233337290",
-                   TipoContribuyenteId=1,
+                IList<Contribuyente> contribuyente = new List<Contribuyente>{
+                  new(){ Id = 1,
+                         Nombre="PEDRO SANCHEZ",
+                         IsActivo=true,
+                         RncCedula="40233337290",
+                         TipoContribuyenteId=1,
+                   },
+                   new(){ Id = 2,
+                          Nombre="ALEXANDER PINEDA",
+                          IsActivo=true,
+                          RncCedula="40233337291",
+                          TipoContribuyenteId=2,
+                   }
                };
 
                 dbContext.Contribuyentes.AddRange(contribuyente);
@@ -60,8 +67,13 @@ namespace Infrastructure.Data
         {
             if (!dbContext.Contribuyentes.Any())
             {
-                var comprobantesData = File.ReadAllText("../Infrastructure/Data/SeedData/Comprobantes.json");
-                var comprobantes = JsonConvert.DeserializeObject<List<ComprobanteFiscal>>(comprobantesData);
+                IList<ComprobanteFiscal> comprobantes = new List<ComprobanteFiscal>{
+                    new() { Id=1, ContribuyenteId=1,Monto=2000, Ncf="B01123456789"},
+                    new() { Id=2, ContribuyenteId=1,Monto=3000, Ncf="B01123456781"},
+                    new() { Id=3, ContribuyenteId=2,Monto=4000, Ncf="B01123456782"},
+                    new() { Id=4, ContribuyenteId=2,Monto=4000, Ncf="B01123456789"},
+                    new() { Id=5, ContribuyenteId=1,Monto=4000, Ncf="B01123456784"}
+                };
                 dbContext.ComprobantesFiscales.AddRange(comprobantes);
             }
         }
